@@ -27,8 +27,6 @@ public class DisplayDevice {
 		clientDisplay.unsubscribe(Common.TEMPTOPIC);
 		clientDisplay.disconnect();
 		
-		System.out.println("Display stopping ... ");
-		
 		
 		System.out.println("Display stopping ... ");
 		
