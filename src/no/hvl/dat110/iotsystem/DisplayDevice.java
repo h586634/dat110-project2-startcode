@@ -13,14 +13,19 @@ public class DisplayDevice {
 		
 		System.out.println("Display starting ...");
 		
-		Client clientDisplay = new Client(Common.TEMPTOPIC,Common.BROKERHOST,Common.BROKERPORT);
+		Client clientDisplay = new Client("Display",Common.BROKERHOST,Common.BROKERPORT);
 		clientDisplay.connect();
 		clientDisplay.createTopic(Common.TEMPTOPIC);
 		clientDisplay.subscribe(Common.TEMPTOPIC);
 		
 		for(int i=0; i<COUNT; i++) {
 			
-		System.out.println("Display " + clientDisplay.receive());
+
+
+		PublishMsg	msg = (PublishMsg) clientDisplay.receive();
+		String message = msg.getMessage();
+
+		System.out.println("Display " + message);
 			
 		}
 		

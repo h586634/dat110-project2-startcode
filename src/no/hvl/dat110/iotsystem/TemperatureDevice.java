@@ -13,7 +13,7 @@ public class TemperatureDevice {
 		TemperatureSensor sn = new TemperatureSensor();
 
 		
-		Client clientDevice = new Client(Common.TEMPTOPIC, Common.BROKERHOST,Common.BROKERPORT);
+		Client clientDevice = new Client("tempSensor", Common.BROKERHOST,Common.BROKERPORT);
 		clientDevice.connect();
 		
 		for (int i=0; i<COUNT; i++) {
