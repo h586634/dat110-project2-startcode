@@ -13,18 +13,22 @@ public class DisplayDevice {
 		
 		System.out.println("Display starting ...");
 		
-		// TODO - START
-				
-		// create a client object and use it to
+		Client clientDisplay = new Client(Common.TEMPTOPIC,Common.BROKERHOST,Common.BROKERPORT);
+		clientDisplay.connect();
+		clientDisplay.createTopic(Common.TEMPTOPIC);
+		clientDisplay.subscribe(Common.TEMPTOPIC);
 		
-		// - connect to the broker
-		// - create the temperature topic on the broker
-		// - subscribe to the topic
-		// - receive messages on the topic
-		// - unsubscribe from the topic
-		// - disconnect from the broker
+		for(int i=0; i<COUNT; i++) {
+			
+		System.out.println("Display " + clientDisplay.receive());
+			
+		}
 		
-		// TODO - END
+		clientDisplay.unsubscribe(Common.TEMPTOPIC);
+		clientDisplay.disconnect();
+		
+		System.out.println("Display stopping ... ");
+		
 		
 		System.out.println("Display stopping ... ");
 		
